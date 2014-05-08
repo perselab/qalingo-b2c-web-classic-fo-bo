@@ -1,3 +1,12 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
@@ -21,7 +30,7 @@
 							</div>
 						</div>
 						<div class="widget-content">
-							<form id="warehouseForm" name="warehouseForm" action="" method="POST">
+							<form id="warehouseForm" name="warehouseForm" action="" method="POST" class="form-edit">
 								<input type="hidden" id="id" name="id" value="$!warehouseForm.id" />
 								<div style="margin-bottom: 10px;">
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
@@ -29,13 +38,14 @@
 								</div>
 								#set($beanName = "warehouseForm")
 								#parse("../../_include/body-form-error-message.vm")
+
 								<div class="form-horizontal well">
 									<div class="form-row">
 										<div class="form-label-column">
 											<label for="code" class="label-form">$wording.get("bo.warehouse.code_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="code" name="code" value="$!warehouseForm.code" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="code" name="code" value="$!warehouseForm.code" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -43,7 +53,7 @@
 											<label for="name" class="label-form">$wording.get("bo.warehouse.name_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="name" name="name" value="$!warehouseForm.name" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="name" name="name" value="$!warehouseForm.name" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -54,6 +64,83 @@
 											<textarea id="description" name="description">$!warehouseForm.description</textarea>
 										</div>
 									</div>
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="address1" class="label-form">$wording.get("bo.common.address1_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="address1" name="address1" value="$!warehouseForm.address1" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="address2" class="label-form">$wording.get("bo.common.address2_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="address2" name="address2" value="$!warehouseForm.address2" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="addressAdditionalInformation" class="label-form">$wording.get("bo.common.address_additional_information_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="$!warehouseForm.addressAdditionalInformation" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="postalCode" class="label-form">$wording.get("bo.common.postal_code_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="postalCode" name="postalCode" value="$!warehouseForm.postalCode" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="city" class="label-form">$wording.get("bo.common.city_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="city" name="city" value="$!warehouseForm.city" />
+										</div>
+									</div>
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="country" class="label-form">$wording.get("bo.common.country_label")</label>
+										</div>
+										<div class="form-input-column">
+											<select id="country" name="country" style="width: 300px; height: 30px;" >
+												<option value="">--</option>
+												#foreach($country in $countries)
+													#if($country.key == $warehouseForm.countryCode)
+													<option value="$country.key" selected="selected">$country.value</option>
+													#else
+													<option value="$country.key">$country.value</option>
+													#end
+												#end
+											</select>
+										</div>
+									</div>
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="longitude" class="label-form">$wording.get("common.geoloc.longitude_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="longitude" name="longitude" value="$!warehouseForm.longitude" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="latitude" class="label-form">$wording.get("common.geoloc.latitude_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="latitude" name="latitude" value="$!warehouseForm.latitude" />
+										</div>
+									</div>
+					
 								</div>
 								<div style="clear: both; padding-top: 15px;">
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>

@@ -1,3 +1,12 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
@@ -6,7 +15,7 @@
 	<div class="page-header" style="border-bottom: 0px;">
 		<div style="float: left; font-size: 18px;"></div>
 		<div style="float: right; text-align: right; font-size: 15px;">
-			$wording.get("bo.common.date_create_label") ${store.dateCreate} | $wording.get("bo.common.date_update_label") ${store.dateUpdate}
+			$wording.get("bo.common.date_create_label") $!store.dateCreate | $wording.get("bo.common.date_update_label") $!store.dateUpdate
 		</div>
 		<div style="clear: both;"></div>
 	</div>
@@ -21,6 +30,9 @@
 			<div style="float: right; padding-right: 15px; font-size: 15px;">
 				<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!store.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 			</div>
+			<div style="float: right; padding-right: 15px; font-size: 15px;">
+				<a href="$!urlRetailerView" class="btn">$wording.get("bo.store.retailer_label")</a>
+			</div>
 		</div>
 		
 		<div class="widget-content">
@@ -32,9 +44,9 @@
 			</div>
 			<div style="width: 100%">
 				<strong>$wording.get("bo.store.name_label")</strong> $!store.name
-			</div>			
+			</div>
 			<div style="width: 100%">
-				$wording.get("bo.store.address_label")
+				<strong>$wording.get("bo.common.address_label")</strong> 
 			</div>
 			<div style="width: 100%">
 				$!store.address1
@@ -44,6 +56,18 @@
 			</div>
 			<div style="width: 100%">
 				$!store.country
+			</div>
+			<div style="width: 100%">
+				<strong>$wording.get("common.geoloc.longitude_label")</strong> $!store.longitude
+			</div>
+			<div style="width: 100%">
+				<strong>$wording.get("common.geoloc.latitude_label")</strong> $!store.latitude
+			</div>
+			<div style="width: 100%">
+				<strong>$wording.get("bo.common.date_create_label"):</strong> $!store.dateCreate
+			</div>
+			<div style="width: 100%">
+				<strong>$wording.get("bo.common.date_update_label"):</strong> $!store.dateUpdate
 			</div>
 		</div>
 			

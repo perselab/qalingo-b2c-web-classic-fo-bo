@@ -1,3 +1,12 @@
+/*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ */
 (function( plugins ) {
     
     plugins.CatalogTree = {
@@ -44,8 +53,8 @@
         loadCatalogHtml : function(catalog) {
 			$("#add-root-category").attr('href', catalog.addRootCategoryUrl);
 		
-			var html = '<li><a href="#' + catalog.code + '">' + catalog.businessName + '</a><ul>';
-			var  catalogCategories = catalog.catalogCategories;
+			var html = '<li><a href="#' + catalog.code + '">' + catalog.name + '</a><ul>';
+			var  catalogCategories = catalog.sortedRootCatalogCategories;
 			html = html + plugins.CatalogTree.loadCatalogCategoryTree(catalogCategories);
 			html = html + '</ul></li>';
 			$('#catalog-tree').html(html);
@@ -60,9 +69,9 @@
 			var html =	'';
 			for(var i = 0; i < catalogCategories.length; i++){
 				var category = catalogCategories[i];
-				html = html + '<li><a href="#" class="find-products" data-category-code="' + category.code + '">' + category.businessName + '</a>';
-				if(category.catalogCategories != null && category.catalogCategories.length > 0){
-					html = html + '<ul>' + plugins.CatalogTree.loadCatalogCategoryTree(category.catalogCategories) + '</ul>';
+				html = html + '<li><a href="#" class="find-products" data-category-code="' + category.code + '">' + category.name + '</a>';
+				if(category.sortedChildCatalogCategories != null && category.sortedChildCatalogCategories.length > 0){
+					html = html + '<ul>' + plugins.CatalogTree.loadCatalogCategoryTree(category.sortedChildCatalogCategories) + '</ul>';
 				}
 				html = html + '</li>';
 			}
@@ -84,14 +93,22 @@
 			});
         },
 		
-        loadProductListHtml : function(category) {	
-			$("#category-name").html(category.businessName);
-			$("#category-urls").html("<a href=\"" + category.addChildCategoryUrl + "\">add child category</a> | <a href=\"" + category.detailsUrl + "\">details</a> | <a href=\"" + category.editUrl + "\">edit</a>");
-			var html = "";
-			$.each(category.productMarketings, function(i, item){
-				html = html + "<tr><td>" + item.code + "</td><td>" + item.businessName + "</td><td>" + item.position + "</td><td>" + item.productSkus.length + "</td><td><a href=\"" + item.detailsUrl + "\">détails</a> | <a href=\"" + item.editUrl + "\">éditer</a></td></tr>";
+        loadProductListHtml : function(category) {
+			$('#header-category-details').html($("#HeaderCategoryDetailsContent").render(category));
+			$('#product-list').html($("#ProductListContent").render(category));
+			$('.trigger-show-skus').on('click', function() {
+				// RESET ALL
+				$(".product-item").css("height", "35px");
+				$(".sku-list").css("display", "none");
+				
+				// SET SPECIFIC ITEM
+				var countSkuItem = $(this).parents(".product-item").find(".sku-list .sku-item").length;
+				var productItemHeight = 35 + countSkuItem * 35;
+				$(this).parents(".product-item").css("height", productItemHeight + "px");
+				$(this).parents(".product-item").find(".sku-list").css("display", "block");
 			});
-			$("#product-list tbody").html(html);
+			
+			plugins.AddProductToCatalogCategory.init();
 		},
 		
     };

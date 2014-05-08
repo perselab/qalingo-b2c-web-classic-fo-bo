@@ -1,3 +1,12 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($head_meta = "../content/retailer/store-details_meta.vm")
 #set ($page_title = $seoPageTitle)
@@ -5,7 +14,7 @@
 #set ($footer_script_content = "../content/retailer/store-details_script.vm")
 
 <section id="store-locator" class="product-detail-wrap store-detail-wrap">
-<span class="section-title category-title">Home › Location ›$!store.businessName ($!store.code)</span>
+<span class="section-title category-title">Home › Location ›$!store.name ($!store.code)</span>
 <div class="clear border-btm"></div>
 <!-- nivo slider - store images -->
 
@@ -31,7 +40,7 @@
 	
 </div>
 <div class="product-info span8">
-	<h3 class="product-name store-name">$!store.businessName</h3>
+	<h3 class="product-name store-name">$!store.name</h3>
 	<div class="review-rating-wrap">
 		<span class="rating-stars star-3">&nbsp;</span>
 		<a href="javascript:void(0)" class="review-rating-star star-5">&nbsp;</a>
@@ -113,7 +122,7 @@
 	<a href="$store.detailsUrl" class="store-item">
 		<span class="store-thumb"><img src="$store.defaultImage" alt="Store1"></span>
 			<div class="store-item-info">
-			<h2 class="store-list-title">$store.businessName</h2>
+			<h2 class="store-list-title">$store.name</h2>
 		<span class="store-list-address"><i class="icon-map-marker"></i> $store.address1</span>
 		</div>
 	</a>

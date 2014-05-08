@@ -1,3 +1,12 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
@@ -7,6 +16,9 @@
 	</div>
 	<div style="float: right; padding-right: 15px; font-size: 15px;">
 		<a href="$!urlAdd" class="btn btn-primary">$wording.get("bo.common.add_label")</a>
+	</div>
+	<div style="float: right; padding-right: 15px; font-size: 15px;">
+		<a href="$!urlRetailerView" class="btn">$wording.get("bo.store.retailer_label")</a>
 	</div>
 	<div style="float: left;">
 		<form method="POST" class="navbar-search pull-right" action="">
@@ -21,7 +33,7 @@
 				<tr>
 					<th width="50px">$wording.get("bo.store.code_label")</th>
 					<th width="250px">$wording.get("bo.store.name_label")</th>
-					<th width="200px">$wording.get("bo.store.address1_label")</th>
+					<th width="200px">$wording.get("bo.common.address_label")</th>
 					<th width="200px">$wording.get("bo.common.actions_label")</th>
 				</tr>
 			</thead>

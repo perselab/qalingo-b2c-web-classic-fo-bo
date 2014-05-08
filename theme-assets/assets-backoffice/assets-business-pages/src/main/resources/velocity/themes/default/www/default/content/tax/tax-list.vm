@@ -1,3 +1,12 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
@@ -14,19 +23,21 @@
 							<table class="table" style="width: 100%">
 								<thead>
 									<tr>
-										<th width="120px">$wording.get("bo.tax.code_label")</th>
+										<th width="100px">$wording.get("bo.tax.code_label")</th>
 										<th width="200px">$wording.get("bo.tax.name_label")</th>
-										<th width="350px">$wording.get("bo.tax.description_label")</th>
+										<th width="320px">$wording.get("bo.tax.description_label")</th>
+										<th width="50px">$wording.get("bo.tax.percent_label")</th>
 										<th width="130px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>
 									#foreach($tax in $pagedListHolder.pageList)
 									<tr>
-										<td>${tax.code}</td>
-										<td>${tax.name}</td>
-										<td>${tax.description}</td>
-										<td><a href="${tax.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="${tax.editUrl}" class="btn">$wording.get("bo.common.edit_label")</a></td>
+										<td>$!tax.code</td>
+										<td>$!tax.name</td>
+										<td>$!tax.description</td>
+										<td>$!tax.percent</td>
+										<td><a href="$!tax.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="$!tax.editUrl" class="btn">$wording.get("bo.common.edit_label")</a></td>
 									</tr>
 									#end
 								</tbody>  

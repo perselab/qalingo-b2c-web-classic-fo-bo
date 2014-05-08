@@ -1,11 +1,22 @@
+/**
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ */
 /*****************************************************************************
 	Global
 *****************************************************************************/
 
 body {
-	font: 13px/1.7em 'Open Sans';
+	font-size: 13px;
+	font-family: 'Open Sans',sans-serif;
 }
-    
+  
+/*  
 p { 
 	font: 13px/1.7em 'Open Sans'; 	
 }
@@ -13,6 +24,7 @@ p {
 input, button, select, textarea {
   font-family: 'Open Sans';
 }
+*/
 
 h1 {
     font-size: 25.5px;

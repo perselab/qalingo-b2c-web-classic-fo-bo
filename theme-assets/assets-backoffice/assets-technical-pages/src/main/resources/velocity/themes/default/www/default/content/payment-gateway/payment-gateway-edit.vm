@@ -1,3 +1,12 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
@@ -71,10 +80,11 @@
 												</tr>
 											</thead>
 											<tbody>
-												#foreach($availablePaymentGatewayAttributeDefinition in $availablePaymentGatewayGlobaleAttributeDefinitions)
+												#set ($mapGlobalAttributes = $!paymentGateway.globalAttributes )
+												#foreach($availableAttributeDefinition in $availableGlobaleAttributeDefinitions)
 												<tr>
-													<td>$availablePaymentGatewayAttributeDefinition.code</td>
-													<td><input type="text" id="globalAttributeMap" name="globalAttributeMap['$availablePaymentGatewayAttributeDefinition.code']" " value="$!paymentGateway.globalAttributes.get($availablePaymentGatewayAttributeDefinition.code)" style="width: 300px;" /></td>
+													<td>$availableAttributeDefinition.code</td>
+													<td><input type="text" id="globalAttributeMap" name="globalAttributeMap['$availableAttributeDefinition.code']" " value="$!mapGlobalAttributes.get($availableAttributeDefinition.code)" style="width: 300px;" /></td>
 												</tr>
 												#end
 											</tbody>
@@ -95,10 +105,11 @@
 												</tr>
 											</thead>
 											<tbody>
-												#foreach($availablePaymentGatewayAttributeDefinition in $availablePaymentGatewayMarketAreaAttributeDefinitions)
+												#set ($mapMarketAreaAttributes = ${paymentGateway.marketAreaAttributes} )
+												#foreach($availableAttributeDefinition in $availableMarketAreaAttributeDefinitions)
 												<tr>
-													<td>$availablePaymentGatewayAttributeDefinition.code</td>
-													<td><input type="text" id="marketAreaAttributeMap" name="marketAreaAttributeMap['$availablePaymentGatewayAttributeDefinition.code']" " value="$!paymentGateway.marketAreaAttributes.get($availablePaymentGatewayAttributeDefinition.code)" style="width: 300px;" /></td>
+													<td>$availableAttributeDefinition.code</td>
+													<td><input type="text" id="marketAreaAttributeMap" name="marketAreaAttributeMap['$availableAttributeDefinition.code']" " value="$!mapMarketAreaAttributes.get($availableAttributeDefinition.code)" style="width: 300px;" /></td>
 												</tr>
 												#end
 											</tbody>
@@ -120,15 +131,15 @@
 												</tr>
 											</thead>
 											<tbody>
-												#foreach($availablePaymentGatewayOption in $availablePaymentGatewayOptions)
+												#foreach($availableOption in $availableOptions)
 												<tr>
-													<td>$availablePaymentGatewayOption.code</td>
-													<td>$availablePaymentGatewayOption.name</td>
+													<td>$availableOption.code</td>
+													<td>$availableOption.name</td>
 													<td>
-													#if($!paymentGateway.options.containsKey($availablePaymentGatewayOption.code))
-													<input type="checkbox" id="optionMap['$availablePaymentGatewayOption.code']" name="optionMap['$availablePaymentGatewayOption.code']" value="" checked="checked" />
+													#if($!paymentGateway.options.containsKey($availableOption.code))
+													<input type="checkbox" id="optionMap['$availableOption.code']" name="optionMap['$availableOption.code']" value="" checked="checked" />
 													#else
-													<input type="checkbox" id="optionMap['$availablePaymentGatewayOption.code']" name="optionMap['$availablePaymentGatewayOption.code']" value="" />
+													<input type="checkbox" id="optionMap['$availableOption.code']" name="optionMap['$availableOption.code']" value="" />
 													#end
 												</tr>
 												#end

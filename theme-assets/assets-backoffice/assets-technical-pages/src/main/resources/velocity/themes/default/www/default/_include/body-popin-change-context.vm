@@ -1,9 +1,9 @@
 #*
  * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
- * under the Apache License Version 2.0 (release version 0.7.3-SNAPSHOT)
+ * under the Apache License Version 2.0 (release version 0.8.0)
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
- *                   Copyright (c) Hoteia, 2012-2013
+ *                   Copyright (c) Hoteia, 2012-2014
  * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
  *
  *#
@@ -39,8 +39,8 @@
 		
 <script id="change-context-content" type="text/x-jsrender">
 	<div class="change-context-content row">
-		<div style="margin-left: 100px;">
-			<div style="padding-top: 20px;">
+		<div style="margin-left: 40px; padding-top: 20px;">
+			<div style="float: left;">
 				<ul class="nav nav-list">
 					#foreach($marketPlace in $marketPlaces)
 					<li><a href="$marketPlace.homeUrl" alt="$marketPlace.name"><i class="fa fa-bars"></i>&nbsp;$marketPlace.name</a></li>
@@ -63,10 +63,24 @@
 					#end
 				</ul>
 			</div>
+			<div style="float: left;">
+				<div>Current Context :</div>
+				<div>
+					$wording.get("bo.header_menu.marketplace")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketPlace.name</span><br/>
+					$wording.get("bo.header_menu.market")&nbsp;<span style="color: #a1cd44;">$!common.currentMarket.name</span><br/>
+					$wording.get("bo.header_menu.market_area")&nbsp;<span style="color: #a1cd44;">$!common.currentMarketArea.name</span><br/>
+					&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaLocalization.name</span><br/>
+					&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaRetailer.name</span><br/>
+					&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaCurrency.name</span><br/>
+				</div>
+				<div>available localizations</div>
+				<div>available currencies</div>
+				<div>available retailers</div>
+			</div>
 		</div>
 		<div style="clear: both;">
 		<div>
-			<div style="float: right; margin-right: 15px;" class="cart-btn1 change-context-continue">$wording.get("bo.common.popin_continue_label")</div>
+			<div style="float: right; margin-right: 15px;" class="popin-btn change-context-continue">$wording.get("bo.common.popin_continue_label")</div>
 		</div>
 	</div>
 </script>

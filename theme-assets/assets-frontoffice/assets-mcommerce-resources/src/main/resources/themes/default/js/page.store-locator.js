@@ -1,3 +1,12 @@
+/*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ */
 (function($){
 	var _deleteAllMarket = function(){
 	    var currentMarkers = _markers.markers;
@@ -6,7 +15,7 @@
 	    }
 	    _markers.markers = new Array();
 	},
-	//_setMarker = function(lon,lat,code,businessName,address,city,country){
+	//_setMarker = function(lon,lat,code,name,address,city,country){
 	_setMarker = function(store){
 	    var size = new OpenLayers.Size(21,25);
         var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
@@ -20,7 +29,7 @@
 	        if(popup == null){
 //	        	var data = {
 //	        		code: code,
-//	        		businessName: businessName,
+//	        		name: name,
 //	        		address: address, 
 //	        		city: city,
 //	        		country: country,
@@ -154,7 +163,7 @@
 	             for(var j = 0 ; j< cities.length; j++){
 	                 var stores = cities[j].stores;
 	                 for(var k = 0; k< stores.length; k++){
-	                     if(stores[k].businessName.search(new RegExp(textSearch,"i") ) !== -1){
+	                     if(stores[k].name.search(new RegExp(textSearch,"i") ) !== -1){
 	                     positionFound.push(stores[k]);
 	                     }
 	                 }
@@ -170,7 +179,7 @@
 		     for(var j = 0 ; j< cities.length; j++){
 		         var stores = cities[j].stores;
 		         for(var k = 0; k< stores.length; k++){
-		             if(stores[k].businessName.search(new RegExp(textSearch,"i") ) !== -1){
+		             if(stores[k].name.search(new RegExp(textSearch,"i") ) !== -1){
 		                 positionFound.push(stores[k]);
 		             }
 		         }
@@ -183,7 +192,7 @@
 		 var cities = dataSearch[indexCountry].cities;
 	     var stores = cities[indexCity].stores;
 	     for(var k = 0; k< stores.length; k++){
-	         if(stores[k].businessName.search(new RegExp(textSearch,"i") ) !== -1){
+	         if(stores[k].name.search(new RegExp(textSearch,"i") ) !== -1){
 	             positionFound.push(stores[k]);
 	         }
 	     }

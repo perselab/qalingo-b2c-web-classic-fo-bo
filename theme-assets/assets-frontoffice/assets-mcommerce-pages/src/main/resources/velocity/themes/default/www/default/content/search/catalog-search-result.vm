@@ -1,3 +1,12 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
@@ -82,7 +91,7 @@
 				<li class="item span3">
 					<a href="$searchItem.detailsUrl" class="product-image">
 						<span>
-							<img class="lazy" data-original="${searchItem.carouselImage}" src="/assets/images/placeholder.jpg" alt="${searchItem.name}"/>
+							<img class="lazy" data-original="${searchItem.carouselImage}" src="${common.themeResourcePrefixPath}/img/product-asset-loader.gif" alt="${searchItem.name}"/>
 							<noscript><img src="${searchItem.carouselImage}"></noscript>
 						</span>
 					</a>					
@@ -91,9 +100,9 @@
 						<span class="rating-stars star-$!searchItem.customerProductRates.avgRateStar">&nbsp;</span>
 						<p class="product-short-des hide-as-grid">${searchItem.description}</p>
 						<p class="product-price">$!searchItem.priceWithCurrencySign</p>
-						<a href="$searchItem.addToCartUrl" class="cart-btn1">
+						<a href="$searchItem.addToCartUrl" class="cart-btn">
 							<i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
-						<a href="#" class="wishlist-btn1">
+						<a href="#" class="wishlist-btn">
 							<i class="fa fa-heart"></i>
 							<span class="wishlist-btn-des">Add to wishlist</span>
 						</a>

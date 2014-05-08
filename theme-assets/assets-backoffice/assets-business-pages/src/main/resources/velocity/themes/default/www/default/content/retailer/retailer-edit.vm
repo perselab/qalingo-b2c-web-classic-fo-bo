@@ -1,3 +1,12 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 #set ($footer_script_content = "../content/retailer/retailer-edit-footer-script.vm")
@@ -22,7 +31,7 @@
 							</div>
 						</div>
 						<div class="widget-content">
-							<form id="retailerForm" name="retailerForm" action="" method="POST" enctype="multipart/form-data">
+							<form id="retailerForm" name="retailerForm" action="" method="POST" enctype="multipart/form-data" class="form-edit">
 								<input type="hidden" id="id" name="id" value="${retailerForm.id}" />
 								<div>
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
@@ -36,7 +45,7 @@
 											<label for="code" class="label-form">$wording.get("bo.retailer.code_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="code" name="code" value="$!retailerForm.code" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="code" name="code" value="$!retailerForm.code" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -44,7 +53,7 @@
 											<label for="name" class="label-form">$wording.get("bo.retailer.name_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="name" name="name" value="$!retailerForm.name" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="name" name="name" value="$!retailerForm.name" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -68,7 +77,7 @@
 											<input type="hidden" name="brand" value="$!retailerForm.brand"/>
 											<input type="hidden" name="officialRetailer" value="$!retailerForm.officialRetailer"/>
 											<input type="hidden" name="ecommerce" value="$!retailerForm.ecommerce"/>
-											<input type="hidden" name="corner" value="$!retailerForm.ecommerce"/>
+											<input type="hidden" name="corner" value="$!retailerForm.corner"/>
 										</div>
 									</div>							
 									
@@ -107,7 +116,7 @@
 											<label for="address1" class="label-form">$wording.get("bo.retailer.address1_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="address1" name="address1" value="$!retailerForm.address1" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="address1" name="address1" value="$!retailerForm.address1" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -115,7 +124,7 @@
 											<label for="address2" class="label-form">$wording.get("bo.retailer.address2_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="address2" name="address2" value="$!retailerForm.address2" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="address2" name="address2" value="$!retailerForm.address2" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -123,7 +132,7 @@
 											<label for="addressAdditionalInformation" class="label-form">$wording.get("bo.retailer.address_additional_information_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="$!retailerForm.addressAdditionalInformation" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="$!retailerForm.addressAdditionalInformation" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -131,7 +140,7 @@
 											<label for="postalCode" class="label-form">$wording.get("bo.retailer.postal_code_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="postalCode" name="postalCode" value="$!retailerForm.postalCode" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="postalCode" name="postalCode" value="$!retailerForm.postalCode" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -139,7 +148,7 @@
 											<label for="city" class="label-form">$wording.get("bo.retailer.city_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="city" name="city" value="$!retailerForm.city" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="city" name="city" value="$!retailerForm.city" />
 										</div>
 									</div>
 									

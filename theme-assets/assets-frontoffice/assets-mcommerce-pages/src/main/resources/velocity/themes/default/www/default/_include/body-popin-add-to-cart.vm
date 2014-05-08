@@ -1,9 +1,9 @@
 #*
  * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
- * under the Apache License Version 2.0 (release version 0.7.3-SNAPSHOT)
+ * under the Apache License Version 2.0 (release version 0.8.0)
  *         http://www.apache.org/licenses/LICENSE-2.0
  *
- *                   Copyright (c) Hoteia, 2012-2013
+ *                   Copyright (c) Hoteia, 2012-2014
  * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
  *
  *#
@@ -62,8 +62,8 @@
 		</div>
 		<div style="clear: both;">
 		<div>
-			<div style="float: left; margin-left: 40px;" class="cart-btn1 add-to-cart-continue">$wording.get("fo.common.popin_continue_label")</div>
-			<div style="float: right;" class="cart-btn1 go-to-checkout"><a href="{{:checkoutShoppingCartUrl}}"><i class="fa fa-shopping-cart"></i>&nbsp;$wording.get("fo.checkout_shopping_cart.popin_go_to_cart")</a></div>
+			<div style="float: left; margin-left: 40px;" class="popin-btn add-to-cart-continue">$wording.get("fo.common.popin_continue_label")</div>
+			<div style="float: right;" class="popin-btn go-to-checkout"><a href="{{:checkoutShoppingCartUrl}}"><i class="fa fa-shopping-cart"></i>&nbsp;$wording.get("fo.checkout_shopping_cart.popin_go_to_cart")</a></div>
 		</div>
 	</div>
 </script>

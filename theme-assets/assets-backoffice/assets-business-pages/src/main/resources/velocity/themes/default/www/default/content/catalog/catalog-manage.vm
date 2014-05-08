@@ -1,6 +1,17 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($footer_script_content = "../content/catalog/catalog-manage-footer-script.vm")
 #set ($page_title = $seoPageTitle)
+
+#parse("../../_include/body-popin-add-product-to-catalog-category.vm")
 
 <style>
 .tree {
@@ -52,29 +63,41 @@
 							<h1>${mainContentTitle}</h1>
 						</div>
 						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							Actions: <a href="#" id="add-root-category">$wording.get("bo.catalog_category.add_master_category_label")</a>
+							Actions: <a href="#" id="add-root-category">$wording.get("bo.catalog_category.add_root_category_label")</a>
 						</div>
 					</div>
 					<div style="clear: both; float: left;">
-						<ul id="catalog-tree" data-catalog-type="$catalogType">
-						</ul>
+						<ul id="catalog-tree" data-catalog-type="$!catalogType"></ul>
 					</div>
 					<div style="float: right;">
-<div>Product list for category : <span id="category-name" style="font-weight: bold;"></span>&nbsp;&nbsp;&nbsp;<span id="category-urls" style="font-weight: bold;"></span></div>				
-<table id="product-list" class="tablesorter" style="with: 700px;"> 
-<thead> 
-<tr> 
-    <th style="width: 100px; text-align: left;">Code</th> 
-    <th style="width: 200px; text-align: left;">Name</th>
-    <th style="width: 100px; text-align: left;">Position</th>
-    <th style="width: 100px; text-align: left;">Sku count</th> 
-    <th style="width: 200px; text-align: left;"></th> 
-</tr> 
-</thead> 
-<tbody>
-</tbody> 
-</table> 
+						<div id="header-category-details" style="padding-bottom: 15px;"></div>
+						<ul id="product-list" class="tablesorter" style="width: 650px; list-style: none;"></ul> 
 					</div>
 				</section>
+				
+				
+<script id="HeaderCategoryDetailsContent" type="text/x-jsrender">
+	Product list for category : <span id="category-name" style="font-weight: bold;">{{:name}}</span>&nbsp;&nbsp;&nbsp;
+	<span id="category-urls" style="font-weight: bold;">
+	<a href="{{:detailsUrl}}" class="btn btn-primary" target="_blank">$wording.get("bo.common.details_label")</a>&nbsp;
+	<a href="{{:editUrl}}" class="btn" target="_blank">$wording.get("bo.common.edit_label")</a>&nbsp;
+	<a href="{{:addChildCategoryUrl}}" class="btn" target="_blank">$wording.get("bo.catalog_category.add_child_category_label")</a>&nbsp;
+	<a href="#" class="btn trigger-add-product-to-category" data-category-code="{{:code}}">$wording.get("bo.catalog_category.add_a_product_label")</a>
+	</span>
+</script>
+	
+<script id="ProductListContent" type="text/x-jsrender">
+	{{for productMarketings}}
+	<li class="product-item" style="height: 35px; border-bottom: solid 1px #ACACAC; margin-bottom: 5px;">
+		<div style="clear: both; float: left;">{{:name}} ({{:code}}) Ranking: {{:ranking}}</div><div style="float: right;"><a href="{{:detailsUrl}}" class="btn btn-primary" target="_blank">$wording.get("bo.common.details_label")</a>&nbsp;<a href="{{:editUrl}}" class="btn" target="_blank">$wording.get("bo.common.edit_label")</a>&nbsp;<a href="#" class="btn trigger-show-skus">$wording.get("bo.common.sku_list_label") ({{:productSkus.length}})</a></div>
+		<ul class="sku-list" style="padding-top: 5px; display: none; list-style: none;">
+		{{for productSkus}}
+			<li class="sku-item" style="height: 35px;"><div style="clear: both; float: left;">{{:name}} ({{:code}}) {{:ranking}} </div><div style="float: right;"><a href="{{:detailsUrl}}" class="btn btn-primary" target="_blank">$wording.get("bo.common.details_label")</a>&nbsp;<a href="{{:editUrl}}" class="btn" target="_blank">$wording.get("bo.common.edit_label")</a></li></div>
+		{{/for}} 
+		</ul>
+	</li>
+	{{/for}} 
+</script>
+
 				
 

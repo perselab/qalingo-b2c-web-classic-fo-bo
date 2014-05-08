@@ -1,3 +1,12 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.8.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2014
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
@@ -21,7 +30,7 @@
 							</div>
 						</div>
 						<div class="widget-content">
-							<form id="userForm" name="userForm" action="" method="POST">
+							<form id="userForm" name="userForm" action="" method="POST" class="form-edit">
 								<input type="hidden" id="id" name="id" value="$!userForm.id" />
 								<div style="margin-bottom: 10px;">
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
@@ -35,7 +44,7 @@
 											<label for="lastname" class="label-form">$wording.get("bo.user.firstname_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="lastname" name="lastname" value="$!userForm.lastname" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="lastname" name="lastname" value="$!userForm.lastname" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -43,7 +52,7 @@
 											<label for="firstname" class="label-form">$wording.get("bo.user.lastname_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="firstname" name="firstname" value="$!userForm.firstname" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="firstname" name="firstname" value="$!userForm.firstname" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -51,7 +60,7 @@
 											<label for="email" class="label-form">$wording.get("bo.user.email_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="email" name="email" value="$!userForm.email" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="email" name="email" value="$!userForm.email" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -59,7 +68,7 @@
 											<label for="login" class="label-form">$wording.get("bo.user.login_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="login" name="login" value="$!userForm.login" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="login" name="login" value="$!userForm.login" />
 										</div>
 									</div>
 									<div class="form-row">
