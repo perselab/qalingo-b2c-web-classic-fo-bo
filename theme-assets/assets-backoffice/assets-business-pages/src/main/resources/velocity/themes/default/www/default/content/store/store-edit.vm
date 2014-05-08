@@ -68,17 +68,25 @@
 					
 					<div class="form-row">
 						<div class="form-label-column">
-							<label for="file" class="label-form">$wording.get("bo.store.defaultImage_label")</label>
+							<label class="label-form">$wording.get("bo.store.icon_label")</label>
 						</div>
 						<div class="form-input-column">							
 							<span class="store-icon">
 								<img src="$!store.iconImage"/>								
-							</span>
+							</span>							
+						</div>
+					</div>	
+					
+					<div class="form-row">
+						<div class="form-label-column">
+							<label class="label-form">$wording.get("bo.store.defaultImage_label")</label>
+						</div>
+						<div class="form-input-column">														
 							<span class="store-default-image">
 								<img src="$!store.defaultImage"/>
 							</span>
 						</div>
-					</div>									
+					</div>	
 
 					<div class="form-row">
 						<div class="form-label-column">

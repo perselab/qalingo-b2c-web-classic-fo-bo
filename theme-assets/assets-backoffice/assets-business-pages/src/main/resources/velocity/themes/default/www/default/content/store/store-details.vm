@@ -32,10 +32,7 @@
 			</div>
 			<div style="width: 100%">
 				<strong>$wording.get("bo.store.name_label")</strong> $!store.name
-			</div>
-			<div style="width: 100%">
-				<strong>$wording.get("bo.store.description_label")</strong> $!store.description
-			</div>
+			</div>			
 			<div style="width: 100%">
 				$wording.get("bo.store.address_label")
 			</div>
