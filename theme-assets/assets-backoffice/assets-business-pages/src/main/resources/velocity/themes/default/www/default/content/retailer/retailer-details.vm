@@ -36,10 +36,11 @@
 						</div>
 						
 						<div class="widget-content">
-							<div style="width: 100%">
-								<img src="$!retailer.img" /><br/>
-								$!retailer.img
+							#if ($retailer.img)
+							<div style="width: 100%">								
+								<img src="$!retailer.img" /><br/>								
 							</div>
+							#end
 							<div style="width: 100%">
 								<strong>$wording.get("bo.retailer.code_label")</strong> $!retailer.code
 							</div>
